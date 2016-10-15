@@ -1,0 +1,12 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+  <definition name="portal.layout" path="/layout/portal-layout.jsp">
+      <put name="header" value="/tiles/portal-header.jsp" />
+      <put name="body"   value="/tiles/portal-body.jsp" />
+      <put name="advt"   value="/tiles/portal-advt.jsp" />
+      <put name="footer" value="/tiles/portal-footer.jsp" />
+  </definition>
+</tiles-definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+
+<web-app version="2.4" uri="http://java.sun.com/xml/ns/j2ee" >
+
+  <jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <include-prelude>/header.htmlf</include-prelude>
+        <include-coda>/footer.htmlf</include-coda>
+    </jsp-property-group>
+
+    <jsp-property-group>
+        <url-pattern>*.html</url-pattern>
+    </jsp-property-group>
+  </jsp-config>
+
+  <security-role>
+    <role-name>chapter16role</role-name>
+  </security-role>
+
+  <security-constraint>
+    <web-resource-collection>
+        <url-pattern>/showDate.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>chapter16role</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Chapter 16 Realm</realm-name>
+  </login-config>
+
+</web-app>

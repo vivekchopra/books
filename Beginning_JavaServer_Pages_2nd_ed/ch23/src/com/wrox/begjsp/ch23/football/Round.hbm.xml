@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.wrox.begjsp.ch23.football.Round" table="round">
+    <id name="id"  column="id" type="integer" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="roundNumber" column="number" type="int" />
+    <property name="startDate" column="startdate" type="date" />
+    <property name="endDate" column="enddate" type="date" />
+  </class>
+</hibernate-mapping>

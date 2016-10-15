@@ -1,0 +1,4 @@
+<%
+	out.println("Hello There!");
+%>
+<%@include file="/WEB-INF/tagf/someotherfragment.tagf"%>

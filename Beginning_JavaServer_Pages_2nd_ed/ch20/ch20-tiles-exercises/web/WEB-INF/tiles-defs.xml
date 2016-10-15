@@ -1,0 +1,28 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+  
+  <definition name="homepage" path="/layout/homepage.jsp">
+      <put name="header" value="/tiles/header.jsp" />
+      <put name="footer" value="/tiles/footer.jsp" />
+      <put name="body" value="/tiles/body.jsp"/>
+      <put name="menu" value="/tiles/menu.jsp"/>
+  </definition>  
+  
+  <definition name="grandparent" path="/layout/inheritance.jsp">
+  	<put name="title" value="Grandparent Page"/>
+  	<put name="body" value="/tiles/grandparentbody.jsp"/>
+  </definition>
+  
+  <definition name="child" extends="grandparent">
+   	<put name="title" value="Child Page"/>
+  </definition>
+  
+  <definition name="grandchild" extends="child">
+   	<put name="title" value="Grandchild Page"/>
+  	<put name="body" value="/tiles/grandchildbody.jsp"/>   	
+  </definition>
+  
+</tiles-definitions>

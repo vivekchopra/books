@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <description>
+  Wrox Beginning JavaServer Pages Examples - Chapter 6
+    </description>
+    <display-name>Chapter 6 Example (Wrox Beginning JavaSever Pages)</display-name>
+
+   <taglib>
+	    <taglib-uri>
+	       http://www.wrox.com/begjsp/eshop-functions-taglib
+	    </taglib-uri>
+	    <taglib-location>
+	       /WEB-INF/jsp/eshop-taglib.tld
+	    </taglib-location>
+	</taglib>
+ 
+
+</web-app>

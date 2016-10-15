@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<project name="Skeleton" default="compile" basedir=".">
+
+  <target name="init">
+    <tstamp/>
+    <property name="lib.dir" value="${basedir}/WEB-INF/lib"/>
+    <property name="src.dir" value="${basedir}/WEB-INF/src"/>
+    <property name="build.dir" value="${basedir}/WEB-INF/classes"/>
+    <!-- allow user to override properties -->
+    <property file="${basedir}/build.properties"/>
+  </target>
+
+
+  <target name="compile" depends="init">
+
+    <!-- the classpath includes everything in WEB-INF/lib -->
+    <path id="core.class.path">
+      <fileset dir="${lib.dir}">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+
+    <!-- first ensure that the classes directory exists -->
+    <mkdir dir="${build.dir}" />
+    <!-- we compile all our sources -->
+    <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" deprecation="off" optimize="off">
+      <classpath refid="core.class.path"/>
+    </javac>
+    <!-- ...and copy over all our resources -->
+    <copy todir="${build.dir}">
+      <fileset dir="${src.dir}">
+        <include name="**/*.properties" />
+        <include name="**/*.xml"/>
+        <include name="**/*.vm"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="clean" depends="init">
+    <!-- delete everything in the classes dir -->
+    <delete dir="${build.dir}"/>
+  </target>
+
+</project>
+

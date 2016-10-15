@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wrox.begjsp.ch28.bookstore.OrderItem" table="orderitem">
+        <id name="id" type="int" column="id" unsaved-value="0">
+	        <generator class="identity"/>
+		</id>		
+        <property name="qty">
+            <column name="qty" sql-type="int" not-null="true"/>
+        </property>
+        
+        <property name="unitPrice">
+            <column name="unitprice" sql-type="float" not-null="true"/>
+        </property>
+        
+        <many-to-one column="bookid" name="book" 
+        			 class="com.wrox.begjsp.ch28.bookstore.Book" 
+        			 not-null="true"/>
+        <many-to-one column="orderid" name="order" 
+        			 class="com.wrox.begjsp.ch28.bookstore.CustomerOrder" 
+        			 not-null="false"/>
+    </class>
+</hibernate-mapping>
+

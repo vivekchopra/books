@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context docBase="/path/to/jsp-book-projects/chapter24/web" 
+  path="/chapter24" 
+  reloadable="true" 
+  workDir="/path/to/chapter24/work">
+</Context>

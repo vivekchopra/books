@@ -1,0 +1,55 @@
+.category
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 18;
+	color : black;
+	background-color: white;
+}
+
+
+th
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 18;
+	font-weight : bold;
+	color : white;
+	background-color: black;
+}
+
+td
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 14;
+	color : black;
+	background-color: white;
+}
+
+.mainHead
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 38;
+	font-weight : bold;
+      font-style: italic;
+	color : black;
+      text-align: center;
+	background-color: white;
+}
+
+.shopCart
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 24;
+	font-weight : bold;
+	color : white;
+	background-color: blue;
+}
+
+.grandTotal
+{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 18;
+	color : black;
+      font-weight: bold;
+	background-color: white;
+}
+

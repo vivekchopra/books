@@ -1,0 +1,1 @@
+Sharks attacked swimmer, ${param.survivor} survived!

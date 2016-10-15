@@ -1,0 +1,14 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+  
+  <definition name="homepage" path="/layout/homepage.jsp">
+      <put name="header" value="/tiles/it/header.jsp" />
+      <put name="footer" value="/tiles/it/footer.jsp" />
+      <put name="body" value="/tiles/it/body.jsp"/>
+      <put name="menu" value="/tiles/it/menu.jsp"/>
+  </definition>
+  
+</tiles-definitions>

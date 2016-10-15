@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <description>
+  Wrox Beginning JavaServer Pages Examples - Chapter 7
+    </description>
+    <display-name>Chapter 7 Example (Wrox Beginning JavaSever Pages)</display-name>
+<jsp-config>
+<jsp-property-group>
+ <url-pattern>/example2/index2.jsp</url-pattern>
+ <include-prelude>/WEB-INF/jspf/pre1.jspf</include-prelude> 
+</jsp-property-group>
+
+<jsp-property-group>
+ <url-pattern>/example3/indexnew.jsp</url-pattern>
+ <include-prelude>/WEB-INF/jspf/pre2.jspf</include-prelude> 
+</jsp-property-group>
+
+
+
+
+</jsp-config>
+</web-app>

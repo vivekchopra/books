@@ -1,0 +1,45 @@
+
+<project name="jalopy" default="format" basedir=".">
+  <property name="src.home" value="${basedir}/src"/>
+
+
+
+	<taskdef name="jalopy"
+	         classname="de.hunsicker.jalopy.plugin.ant.AntPlugin">
+	  <classpath>
+	    <fileset dir="f:/java/tools/jalopy/lib">
+	      <include name="*.jar" />
+	    </fileset>
+	  </classpath>
+	</taskdef>
+
+  <target name="format">
+
+    <!-- 
+
+      Invokes Jalopy as follows:
+      
+      - All formatted files will have unix fileformat (\n)
+      - Load your personal style convention from the given url
+      - Override your personal style convention to use the file history feature
+      - Override your personal style convention to use loglevel "info"
+      - Override your personal style convention to use 2 threads
+      - The import optimization feature will work (if enabled in the active
+        style convention), because a classpath reference is specified
+
+        Don't forget to setup an include pattern as Jalopy truly expects 
+        valid Java source files as input!
+
+      -->
+    <jalopy fileformat="unix"
+            style="jalopy-pref.xml"
+            history="file"
+            loglevel="error"
+            threads="2">
+      <fileset dir="${src.home}" >
+        <include name="**/*.java" />
+      </fileset>
+    </jalopy>
+  </target>
+
+</project>

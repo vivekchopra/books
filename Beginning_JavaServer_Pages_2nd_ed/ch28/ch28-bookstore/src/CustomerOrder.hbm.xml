@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wrox.begjsp.ch28.bookstore.CustomerOrder" table="customerorder">
+        <id name="id" type="int" column="id" unsaved-value="0">
+	        <generator class="identity"/>
+		</id>
+        <property name="firstName">
+            <column name="firstname" sql-type="varchar(100)" not-null="true"/>
+        </property>
+        <property name="lastName">
+            <column name="lastname" sql-type="varchar(100)" not-null="true"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(100)" not-null="true"/>
+        </property>
+        <property name="zipCode">
+            <column name="zipcode" sql-type="varchar(10)" not-null="true"/>
+        </property>        
+        <property name="orderDate">
+            <column name="orderdate" sql-type="datetime" not-null="true"/>
+        </property> 
+        <property name="cardNumber">
+            <column name="cardnumber" sql-type="varchar(20)" not-null="true"/>
+        </property>
+        <set name="orderItems" cascade="save-update">
+        	<key column="orderid"/>
+        	<one-to-many class="com.wrox.begjsp.ch28.bookstore.OrderItem"/>
+    	</set>
+        <many-to-one column="status" 
+                     name="status" 
+                     class="com.wrox.begjsp.ch28.bookstore.OrderStatus" 
+                     not-null="true"/>
+    </class>
+</hibernate-mapping>
+

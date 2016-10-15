@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+    <!-- Logon form bean -->
+    <form-bean       name="logonForm"
+                     type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+    </form-bean>
+
+    <form-bean      name="registrationForm"
+                    type="com.wrox.begjsp.ch27.struts.RegistrationForm"/>
+
+  </form-beans>
+
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward   name="logon"                path="/logon.do"/>
+    <forward   name="logoff"               path="/logoff.do"/>
+  </global-forwards>
+
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+
+    <!-- Process a user logoff -->
+    <action    path="/logoff"
+               type="com.wrox.begjsp.ch27.struts.LogoffAction">
+      <forward name="success"              path="/logon.jsp"/>
+    </action>
+
+    <!-- Process a user logon -->
+    <action    path="/logon"
+               type="com.wrox.begjsp.ch27.struts.LogonAction"
+               name="logonForm"
+               scope="session"
+               input="logon">
+      <forward name="success"    path="/portalPage.jsp"/>
+      <forward name="failure"    path="/logon.jsp"/>
+    </action>
+
+    <!-- Edit user registration -->
+    <action    path="/editRegistration"
+               type="com.wrox.begjsp.ch27.struts.EditRegistrationAction"
+          attribute="registrationForm"
+              scope="request"
+           validate="false">
+      <forward name="success"              path="/registration.jsp"/>
+    </action>
+
+    <!-- Save user registration -->
+    <action    path="/saveRegistration"
+               type="com.wrox.begjsp.ch27.struts.SaveRegistrationAction"
+               name="registrationForm"
+              scope="request"
+              input="registration">
+         <forward name="success"    path="/logon.jsp"/>
+         <forward name="failure"    path="/logon.jsp"/>
+    </action>
+
+    <!-- Edit profile -->
+    <action    path="/editProfile"
+               type="com.wrox.begjsp.ch27.struts.EditProfileAction"
+          attribute="registrationForm"
+              scope="request"
+           validate="false">
+      <forward name="success"              path="/editProfile.jsp"/>
+    </action>
+
+    <!-- Save profile -->
+    <action    path="/saveProfile"
+               type="com.wrox.begjsp.ch27.struts.SaveProfileAction"
+               name="registrationForm"
+              scope="request"
+              input="registration">
+         <forward name="success"    path="/portalPage.jsp"/>
+         <forward name="failure"    path="/logon.jsp"/>
+    </action>
+
+  </action-mappings>
+
+  <!-- ========== Controller Configuration ================================ -->
+
+  <controller>
+    <!-- The "input" parameter on "action" elements is the name of a
+         local or global "forward" rather than a module-relative path -->
+    <set-property property="inputForward" value="true"/>
+  </controller>
+
+
+  <!-- ========== Message Resources Definitions =========================== -->
+
+  <message-resources
+    parameter="com.wrox.begjsp.ch27.ApplicationResources"/>
+
+  <!-- ========== Plug Ins Configuration ================================== -->
+
+  <plug-in className="org.apache.struts.plugins.ModuleConfigVerifier"/>
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+                     value="/WEB-INF/validator-rules.xml,
+                            /WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>

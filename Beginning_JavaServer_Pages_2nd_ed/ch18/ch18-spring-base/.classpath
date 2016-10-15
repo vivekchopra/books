@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="F:/java/tools/spring-framework-1.0/dist/spring.jar"/>
+	<classpathentry kind="lib" path="F:/java/servers/Tomcat5.0.27/common/lib/servlet-api.jar"/>
+	<classpathentry kind="output" path="build/WEB-INF/classes"/>
+</classpath>

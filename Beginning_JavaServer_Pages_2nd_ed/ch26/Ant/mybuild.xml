@@ -1,0 +1,17 @@
+<!--
+    Sample build script for creating a directory and copying files to it.
+  -->
+<project name="MyAntProject" basedir="." default="copyfile">
+
+  <property name="dir.name" value="${basedir}/mydir"/>
+  <property name="file.name" value="file1.txt"/>
+
+  <target name="makedirectory" description="Create directory mydir">
+    <mkdir dir="${dir.name}"/>
+  </target>
+
+  <target name="copyfile" depends="makedirectory" description="Copy files">
+    <copy file="${file.name}" todir="${dir.name}"/>
+  </target>
+
+</project>

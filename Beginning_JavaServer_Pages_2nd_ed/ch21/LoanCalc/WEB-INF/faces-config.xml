@@ -1,0 +1,69 @@
+<?xml version="1.0"?> 
+<!DOCTYPE faces-config PUBLIC 
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN" 
+  "http://java.sun.com/dtd/web-facesconfig_1_0.dtd"> 
+ 
+<faces-config> 
+    <navigation-rule>
+        <from-view-id>/NumberGuess.jsp</from-view-id> 
+        <navigation-case> 
+            <from-outcome>success</from-outcome> 
+            <to-view-id>/YouWin.jsp</to-view-id> 
+        </navigation-case> 
+        <navigation-case> 
+            <from-outcome>failure</from-outcome> 
+            <to-view-id>/NumberGuess.jsp</to-view-id> 
+        </navigation-case> 
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/YouWin.jsp</from-view-id> 
+        <navigation-case> 
+            <from-outcome>success</from-outcome> 
+            <to-view-id>/NumberGuess.jsp</to-view-id> 
+        </navigation-case> 
+    </navigation-rule>
+
+    <navigation-rule> 
+        <from-view-id>/calc.jsp</from-view-id> 
+        <navigation-case> 
+            <from-outcome>success</from-outcome> 
+            <to-view-id>/calc.jsp</to-view-id> 
+        </navigation-case> 
+    </navigation-rule> 
+ 
+    <managed-bean> 
+        <description>GuessBean</description> 
+        <managed-bean-name>GuessBean</managed-bean-name> 
+        <managed-bean-class>com.wrox.jsp.GuessBean</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean> 
+    <managed-bean> 
+        <description>LoanBean</description> 
+        <managed-bean-name>LoanBean</managed-bean-name> 
+        <managed-bean-class>com.wrox.jsp.LoanBean</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean> 
+    
+    <validator>
+        <validator-id>OneToTenValidator</validator-id>
+        <validator-class>com.wrox.jsp.OneToTenValidator</validator-class>
+    </validator>
+
+        <validator>
+        <validator-id>IntRangeValidator</validator-id>
+        <validator-class>com.wrox.jsp.IntRangeValidator</validator-class>
+        <attribute>
+            <attribute-name>min</attribute-name>
+            <attribute-class>int</attribute-class>
+        </attribute>
+        <attribute>
+            <attribute-name>max</attribute-name>
+            <attribute-class>int</attribute-class>
+         </attribute>
+    </validator>
+    <converter>
+        <converter-id>NumberToCash</converter-id>
+        <converter-class>com.wrox.jsp.NumberToCashConverter</converter-class>
+    </converter>
+</faces-config>

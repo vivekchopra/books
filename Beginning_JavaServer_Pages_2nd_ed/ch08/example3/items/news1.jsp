@@ -1,0 +1,1 @@
+Sharks attacked <%@ include file="news2.jsp" %>, <jsp:include page="news2.jsp"/> survived!

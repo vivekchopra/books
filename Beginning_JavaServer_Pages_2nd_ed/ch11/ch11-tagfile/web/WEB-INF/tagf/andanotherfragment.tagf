@@ -1,0 +1,3 @@
+<%
+	out.println("this is from andanotherfragment.tagf");
+%>

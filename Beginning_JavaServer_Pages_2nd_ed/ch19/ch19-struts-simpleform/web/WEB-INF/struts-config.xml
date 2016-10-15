@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+          
+<struts-config>
+	<form-beans>	
+	    <form-bean name="loginForm"
+	               type="com.wrox.begjsp.ch19.struts.simpleform.LoginForm"/>
+
+	    <form-bean name="validatorLoginForm"
+	               type="com.wrox.begjsp.ch19.struts.simpleform.ValidatorLoginForm"/>
+	               
+	    <form-bean name="dynaLoginForm"
+	               type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="username" type="java.lang.String"/>
+	      <form-property name="password" type="java.lang.String"/>
+	    </form-bean>	
+	</form-beans>
+
+	<action-mappings>
+	
+		<action path="/login"
+	    		type="com.wrox.begjsp.ch19.struts.simpleform.LoginAction"
+		        name="loginForm"
+	    		input="/login.jsp"
+	    		validate="true"
+	    		scope="request">
+		    <forward name="success" path="/welcome.jsp"/>
+	    </action>    
+	    
+	    <action path="/dynalogin"
+	    		type="com.wrox.begjsp.ch19.struts.simpleform.DynaLoginAction"
+		        name="dynaLoginForm"
+	    		input="/dynaLogin.jsp"
+	    		validate="true"
+	    		scope="request">
+		    <forward name="success" path="/welcome.jsp"/>
+	    </action>  
+	    
+	    <action path="/validatorlogin"
+	    		type="com.wrox.begjsp.ch19.struts.simpleform.ValidatorLoginAction"
+		        name="validatorLoginForm"
+		        validate="true"
+	    		input="/validatorLogin.jsp"
+	    		scope="request">
+		    <forward name="success" path="/welcome.jsp"/>
+	    </action>  
+	    
+	</action-mappings>
+
+	<message-resources parameter="messages" null="false"/>	
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	    <set-property property="pathnames" 
+	              value="/WEB-INF/validator-rules.xml, 
+	                     /WEB-INF/validation.xml"/>
+	</plug-in>
+
+</struts-config>

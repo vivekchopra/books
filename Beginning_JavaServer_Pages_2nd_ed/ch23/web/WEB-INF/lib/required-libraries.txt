@@ -1,0 +1,11 @@
+cglib-full-2.0.1.jar
+commons-collections-2.1.jar
+commons-logging-1.0.3.jar
+dom4j-1.4.jar
+ehcache-0.7.jar
+hibernate2.jar
+jta.jar
+odmg-3.0.jar
+log4j-1.2.8.jar
+jstl.jar
+standard.jar

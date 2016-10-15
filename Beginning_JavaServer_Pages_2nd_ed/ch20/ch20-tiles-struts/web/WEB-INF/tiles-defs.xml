@@ -1,0 +1,57 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+  
+  <definition name="inh.mother.layout" path="/layout/inh-layout.jsp">
+      <put name="header" value="/tiles/inh-header.jsp" />
+      <put name="footer" value="/tiles/inh-footer.jsp" />
+      <put name="menu.region" value="menu"/>
+  
+	  <putList name="myMovies">
+	  	<add value="The Bridges Over Madison County"/>
+	  	<add value="Steel Magnolias"/>
+	  	<add value="What Women Want"/>
+	  	<add value="You've Got Mail"/>
+	  	<add value="Sleepless in Seattle"/>  	
+	  </putList>
+  </definition>
+  
+  <definition name="inh.son.layout" 
+  			  extends="inh.mother.layout">      
+	  <putList name="myMovies">
+	  	<add value="The Matrix"/>
+	  	<add value="The Return of The King"/>
+	  	<add value="A Midnight Clear"/>
+	  	<add value="Apocalypse Now"/>
+	  	<add value="Tigerland"/>
+	  	<add value="Spaced - Series 2"/>
+	  </putList>
+  </definition>
+
+  <definition name="menu"
+              path="/layout/menu-layout.jsp">
+    <put name="menuTitle" value="My Menu"/>
+    <put name="menuTile" value="/tiles/menu-tile.jsp"/>
+  	<putList name="menuItems">
+  		<item value="Home Banking" link="http://somebank.com"/>
+  		<item value="Search" link="http://goggle.com"/>
+  		<item value="Java" link="http://java.sun.com"/>
+	</putList>
+  </definition>
+  
+  <definition name="foo.bar" 
+              path="/layout/foobar-layout.jsp"> 
+    <put name="header" value="/tiles/foobar-header.jsp" />
+    <put name="footer" value="/tiles/foobar-footer.jsp" />
+    <put name="foo.bar.menu.region" value="foo.bar.menu"/>   
+  </definition>
+   
+  <definition name="foo.bar.menu"
+              extends="menu">
+    <put name="menuTitle" value="My FooBar Menu"/>
+    <putList name="menuItems"/>
+  </definition> 
+  
+</tiles-definitions>

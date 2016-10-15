@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <bean id="testFormValidator" class="com.wrox.begjsp.ch18.spring.TestFormValidator"/>
+
+   <bean id="testFormController" class="com.wrox.begjsp.ch18.spring.TestFormController">
+        <property name="sessionForm"><value>false</value></property>
+        <property name="validateOnBinding"><value>true</value></property>
+        <property name="bindOnNewForm"><value>false</value></property>
+        <property name="commandName"><value>testForm</value></property>
+        <property name="commandClass"><value>com.wrox.begjsp.ch18.spring.TestForm</value></property>
+        <property name="validator"><ref bean="testFormValidator"/></property>
+		<property name="formView"><value>form</value></property>
+   </bean> 
+	
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename"><value>messages</value></property>
+    </bean>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+		    <prop key="/form.htm">testFormController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="basename"><value>views</value></property>
+    </bean>
+</beans>  

@@ -1,0 +1,8 @@
+
+this is details.jsp
+
+
+
+
+
+

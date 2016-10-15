@@ -1,0 +1,1 @@
+<center><i>FooBar Footer.. incorporated 2004</i></center>

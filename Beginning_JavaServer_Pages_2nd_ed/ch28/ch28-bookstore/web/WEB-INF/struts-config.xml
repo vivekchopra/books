@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+          
+<struts-config>
+	<form-beans>
+	
+	    <form-bean       name="cartForm"
+	                     type="com.wrox.begjsp.ch28.bookstore.controller.ManageCartForm">
+	    </form-bean>
+	    
+	    <form-bean       name="checkOutForm"
+	                     type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="firstName" type="java.lang.String"/>
+          <form-property name="lastName" type="java.lang.String"/>
+          <form-property name="address" type="java.lang.String"/>
+          <form-property name="zipCode" type="java.lang.String"/>
+          <form-property name="cardNumber" type="java.lang.String"/>
+	    </form-bean>
+	    
+    </form-beans>
+    
+	<global-forwards>
+        <forward name="home" path="/default.do"/>
+    </global-forwards>
+    
+	<action-mappings>
+		
+		<action path="/default"
+				type="com.wrox.begjsp.ch28.bookstore.controller.DefaultAction"
+				scope="request">
+				<forward name="success" path="/listcategories.do"/>
+		</action>
+		
+		<action path="/listcategories"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.ListCategoriesAction"
+	    		scope="request">
+	    	<forward name="success" path="list.categories"/>
+	    </action>
+	    
+	    <action path="/browsecategory"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.BrowseCategoryAction"
+	    		scope="request">
+	    	<forward name="success" path="view.category"/>
+	    </action>
+	    
+	    <action path="/additem"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.AddItemAction"
+	    		scope="request">
+	    	<forward name="success" path="view.category"/>
+	    </action>
+	    
+	    <action path="/managecart"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.ManageCartAction"
+	    		scope="request"
+	    		validate="false"
+	    		name="cartForm">
+	    	<forward name="success" path="manage.cart"/>
+	    </action>
+	    
+	    <action path="/checkout"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.CheckoutAction"
+	    		scope="request"
+	    		validate="false"
+	    		name="checkOutForm">
+	    	<forward name="success" path="view.checkout"/>
+	    </action>
+	    
+	    <action path="/completeorder"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.CompleteOrderAction"
+	    		scope="request"
+	    		validate="true"
+	    		input="/checkout.do"
+	    		name="checkOutForm">
+	    	<forward name="success" path="view.checkout.completed"/>
+	    </action>
+	    
+	    <action path="/salesreport"
+	    		type="com.wrox.begjsp.ch28.bookstore.controller.SalesReportAction"
+	    		scope="request">
+	    	<forward name="success" path="view.salesreport"/>
+	    </action>
+	    
+	</action-mappings>
+	    
+	<message-resources parameter="messages" null="false"/>
+	
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	    <set-property property="pathnames" 
+	              value="/WEB-INF/validator-rules.xml, 
+	                     /WEB-INF/validation.xml"/>
+	</plug-in>
+	
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+	  <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	  <set-property property="definitions-debug" value="2" />
+	  <set-property property="definitions-parser-details" value="2" />
+	  <set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+
+</struts-config>

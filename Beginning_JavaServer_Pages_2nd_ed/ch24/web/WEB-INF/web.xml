@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app version="2.4" uri="http://java.sun.com/xml/ns/j2ee" >
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Everything Private</web-resource-name>
+      <url-pattern>/private/*</url-pattern>
+    </web-resource-collection>
+    <http-method>GET</http-method>
+    <http-method>POST</http-method>  
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+
+    <auth-constraint>
+      <role-name>chapter24</role-name>
+    </auth-constraint>    
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Roster</web-resource-name>
+      <url-pattern>/roster/*</url-pattern>
+    </web-resource-collection>
+    <http-method>GET</http-method>
+    <http-method>POST</http-method>  
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+
+    <auth-constraint>
+      <role-name>staff</role-name>
+      <role-name>manager</role-name>
+    </auth-constraint>    
+  </security-constraint>
+  
+  <filter>
+    <filter-name>SecurityFilter</filter-name>
+    <filter-class>com.wrox.begjsp.ch24.roster.SecurityFilter</filter-class>
+  </filter>
+ 
+  <filter-mapping>
+    <filter-name>SecurityFilter</filter-name>
+    <url-pattern>/roster/*</url-pattern>
+  </filter-mapping>
+   
+  <!--
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Private Realm</realm-name>
+  </login-config>
+  -->
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.html</form-login-page>
+      <form-error-page>/login-error.html</form-error-page>
+    </form-login-config>
+  </login-config>
+
+  <!--
+  <login-config>
+    <auth-method>CLIENT-CERT</auth-method>
+    <realm-name>Private Realm</realm-name>
+  </login-config>
+  -->
+
+  <security-role>
+    <role-name>chapter24</role-name>
+    <role-name>staff</role-name>
+    <role-name>manager</role-name>
+  </security-role>  
+
+</web-app>

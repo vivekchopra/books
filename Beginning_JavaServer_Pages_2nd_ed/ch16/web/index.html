@@ -1,0 +1,25 @@
+<!--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-->
+<c:set var="count" scope="application" value="${count + 1}" />
+
+<html>
+  <head>
+	  <title> Chapter 16 Exercises </title>
+  </head>
+  <body>
+  <h1> Chapter 16 Exercises </h1>
+    <ol>
+      <li> Exercise 1 - Creating and deploying the simplest web application
+      <li> Exercise 2 - <a href="showDate.jsp"> Adding a JSP page </a>
+      <li> Exercise 3 - Securing the JSP page
+      <li> Exercise 4 - Adding headers and footers
+      <li> Exercise 5 - Dynamic HTML pages
+    </ol>
+    <hr/>
+    <center>
+      Page Count:  <c:out value="${count}" />
+    </center>
+    <hr/>
+  </body>
+</html>

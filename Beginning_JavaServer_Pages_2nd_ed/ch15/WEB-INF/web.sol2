@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <description>
+  Wrox Beginning JavaServer Pages Examples - Chapter 15
+    </description>
+    <display-name>Chapter 15 Example (Wrox Beginning JavaServer Pages)</display-name>
+
+     <servlet>
+         <servlet-name>BasicServlet</servlet-name>
+        <servlet-class>com.wrox.begjsp.ch15.servlet.BasicServlet</servlet-class>
+     </servlet>
+
+     <servlet>
+         <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>com.wrox.begjsp.ch15.servlet.ControllerServlet</servlet-class>
+
+   <init-param>
+      <param-name>hot</param-name>
+      <param-value>/example2/red.jsp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cool</param-name>
+      <param-value>/example2/blue.jsp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>warm</param-name>
+      <param-value>/example2/message.jsp</param-value>
+    </init-param>
+   <init-param>
+      <param-name>message</param-name>
+      <param-value>Hello, world!</param-value>
+    </init-param>
+
+
+
+</servlet>
+
+     <servlet>
+         <servlet-name>MessageServlet</servlet-name>
+        <servlet-class>com.wrox.begjsp.ch15.servlet.MessageServlet</servlet-class>
+
+   <init-param>
+      <param-name>message</param-name>
+      <param-value>Hello, world!</param-value>
+    </init-param>
+</servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>BasicServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MessageServlet</servlet-name>
+        <url-pattern>/talktomeplease</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

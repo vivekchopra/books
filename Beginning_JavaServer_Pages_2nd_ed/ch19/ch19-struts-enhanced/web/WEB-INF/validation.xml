@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+<form-validation>
+	<formset>             
+		<form name="testForm">
+			  <field property="name" depends="required,mask">
+			    <msg name="required" key="form.error.name.missing"/>	
+			    <msg name="mask" key="form.error.name.invalid"/>
+			    <var>
+			    	<var-name>mask</var-name>
+			    	<var-value>^[a-zA-Z]*$</var-value>
+			    </var>
+			  </field>  
+			  <field property="emailAddress" depends="required,email">
+			    <msg name="required" key="form.error.emailaddress.missing"/>	
+			    <msg name="email" key="form.error.emailaddress.invalid"/>
+			  </field> 
+			  <field property="favSport" depends="required">
+			    <msg name="required" key="form.error.favsport.missing"/>	
+			  </field> 
+			  <field property="comments" depends="required">
+			    <msg name="required" key="form.error.comments.missing"/>	
+			  </field>  
+		</form>        
+	</formset>   
+</form-validation>

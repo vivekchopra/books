@@ -1,0 +1,79 @@
+<!-- Ant build file for JSP Project I Web Application -->
+
+<project name="jspportal" default="compile" basedir=".">
+  <property name="catalina.home" value="D:\\software\\tomcat\\jakarta-tomcat-5.0.25"/>
+  <property name="app.name"     value="ch27"/>
+  <property name="app.path"     value="/${app.name}"/>
+  <property name="src.home"     value="${basedir}/src"/>
+  <property name="web.home"     value="${basedir}/web"/>
+  <property name="docs.home"    value="${basedir}/docs"/>
+  <property name="build.home"   value="${basedir}/build"/>
+  <property name="dist.home"    value="${basedir}/dist"/>
+  <property name="war.file"     value="${dist.home}/${app.name}.war"/>
+
+  <!-- ====== Prepare Target ====== -->
+  <target name="prepare">
+    <mkdir  dir="${build.home}"/>
+    <mkdir  dir="${build.home}/WEB-INF"/>
+    <mkdir  dir="${build.home}/WEB-INF/classes"/>
+
+    <!-- Copy static content of this web application -->
+    <copy todir="${build.home}">
+      <fileset dir="${web.home}"/>
+    </copy>
+  </target>
+
+  <!-- ====== Compilation  ====== -->
+  <target name="compile" depends="prepare">
+    <javac srcdir="${src.home}" 
+           destdir="${build.home}/WEB-INF/classes" 
+           debug="true" 
+           deprecation="true">
+
+      <classpath>
+        <fileset dir="${web.home}/WEB-INF/lib">
+          <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${catalina.home}/common/classes"/>
+        <fileset dir="${catalina.home}/common/endorsed">
+          <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${catalina.home}/common/lib">
+          <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${catalina.home}/shared/classes"/>
+        <fileset dir="${catalina.home}/shared/lib">
+          <include name="*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+
+    <!-- Copy application resources -->
+    <copy  todir="${build.home}/WEB-INF/classes">
+      <fileset dir="${src.home}" excludes="**/*.java"/>
+    </copy>
+    <copy  todir="${build.home}/WEB-INF/lib">
+      <fileset dir="${web.home}/WEB-INF/lib"/>
+    </copy>
+  </target>
+
+  <!-- ====== Dist Target ====== -->
+  <target name="dist" depends="compile"  
+          description="Create WAR file">
+      <!-- Create WAR file -->
+      <mkdir dir="${dist.home}"/>
+      <jar jarfile="${war.file}"  basedir="${build.home}"/>
+  </target>
+
+  <!-- ====== Clean Target ====== -->
+  <target name="clean" description="Deletes the build and dist directories">
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+  </target>
+
+  <!-- ====== All Target ====== -->
+  <target name="all" 
+          depends="clean, prepare, compile, dist"
+          description="Builds the web application and war file"/>
+</project>
+

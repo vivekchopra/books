@@ -1,0 +1,4 @@
+standard.jar (all)
+jstl.jar (all)
+mail.jar (example2)
+activation.jar (example2)

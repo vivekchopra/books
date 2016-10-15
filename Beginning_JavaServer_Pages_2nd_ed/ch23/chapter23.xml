@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context docBase="/path/to/chapter23/web" 
+  path="/chapter23" 
+  reloadable="true" 
+  workDir="/path/to/chapter23/work">
+
+  <Resource name="jdbc/FootyDB"
+      type="javax.sql.DataSource"
+      auth="Container"
+      />
+      
+  <ResourceParams name="jdbc/FootyDB">
+      <parameter>
+          <name>username</name>
+          <value>footy</value>
+      </parameter>
+      <parameter>
+          <name>password</name>
+          <value>footy</value>
+      </parameter>
+      <parameter>
+          <name>driverClassName</name>
+          <value>com.mysql.jdbc.Driver</value>
+      </parameter>
+      <parameter>
+          <name>url</name>
+          <value>jdbc:mysql://localhost/footydb?autoReconnect=true</value>
+      </parameter>
+  </ResourceParams>
+    
+</Context>

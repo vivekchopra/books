@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Private Area Login Page</title>
+  </head>
+  <body>
+    <h1>Warning: Authorised Users Only</h1>
+    <form action="j_security_check" method="post">
+      <table>
+        <tr>
+          <td>User Name</td>
+          <td><input type="text" name="j_username"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="j_password"></td>
+        </tr>
+        <tr>
+          <td align="right">
+            <input type="submit" value="login">
+          </td>
+          <td align="left">
+            <input type="reset">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

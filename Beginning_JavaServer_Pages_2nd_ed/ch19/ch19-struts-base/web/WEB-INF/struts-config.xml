@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+          
+<struts-config>
+	<form-beans>
+	                   
+	    <form-bean       name="testForm"
+	                     type="org.apache.struts.validator.DynaValidatorForm">
+	      <form-property name="name" type="java.lang.String"/>
+          <form-property name="comments" type="java.lang.String"/>
+	    </form-bean>
+	
+	</form-beans>
+
+	<action-mappings>
+		<action path="/test"
+	    		type="com.wrox.begjsp.ch19.struts.TestAction"
+		        name="testForm"
+		        validate="true"
+	    		input="/index.jsp"
+	    		scope="request">
+		    <forward name="success" path="/details.jsp"/>
+	    </action>    
+	</action-mappings>
+
+	<message-resources parameter="messages" null="false"/>	
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	    <set-property property="pathnames" 
+	              value="/WEB-INF/validator-rules.xml, 
+	                     /WEB-INF/validation.xml"/>
+	</plug-in>
+
+</struts-config>

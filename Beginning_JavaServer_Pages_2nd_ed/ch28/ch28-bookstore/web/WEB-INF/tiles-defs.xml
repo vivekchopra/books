@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="view.abstract" path="/WEB-INF/jsp/layout/standard-layout.jsp">
+	  <put name="header"     value="/WEB-INF/jsp/tiles/header.jsp" />
+	  <put name="menu"       value="bookstore.menu" />	
+	  <put name="base"       value="/WEB-INF/jsp/tiles/base.jsp" />	
+	</definition>
+
+	<definition name="list.categories"  extends="view.abstract">
+	  <put name="body"       value="/WEB-INF/jsp/tiles/category-list.jsp" />
+	</definition>
+	
+	<definition name="view.category"  extends="view.abstract">
+	  <put name="body"       value="/WEB-INF/jsp/tiles/category-browse.jsp" />
+	</definition>
+	
+ 	<definition name="manage.cart"  extends="view.abstract">
+	  <put name="body"       value="/WEB-INF/jsp/tiles/manage-cart.jsp" />
+	</definition>
+	
+	<definition name="view.checkout"  extends="view.abstract">
+	  <put name="body"       value="/WEB-INF/jsp/tiles/checkout.jsp" />
+	</definition>
+	
+	<definition name="view.checkout.completed"  extends="view.abstract">
+	  <put name="body"       value="/WEB-INF/jsp/tiles/checkoutcompleted.jsp" />
+	</definition>
+	
+	<definition name="view.salesreport" extends="view.abstract">
+      <put name="body" 		 value="/WEB-INF/jsp/tiles/salesreport.jsp"/>
+    </definition> 
+	
+	<definition name="bookstore.menu" path="/WEB-INF/jsp/layout/menu-layout.jsp">
+      <put name="menuTile" 	 value="/WEB-INF/jsp/tiles/menu.jsp"/>
+      <putList name="menuItems">
+  		<item value="Book Categories" link="listcategories.do"/>
+  		<item value="View Cart" link="managecart.do"/>
+  		<item value="Checkout" link="checkout.do"/>
+ 		<item value="Sales Report" link="salesreport.do"/>
+	  </putList>
+    </definition> 
+
+</tiles-definitions>
