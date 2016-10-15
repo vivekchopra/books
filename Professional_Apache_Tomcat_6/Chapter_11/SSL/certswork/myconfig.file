@@ -1,0 +1,18 @@
+RANDFILE=./random.txt
+[req]
+default_bits=1024
+default_keyfile=keyfile.pem
+attributes=req_attributes
+distinguished_name=Wiley
+prompt=no
+output_password=mypassword
+[Wiley]
+C=US
+ST=NJ
+L=Hoboken
+O=Wiley
+OU=Wrox Press
+CN=192.168.23.168
+emailAddress=mail@myserver.com
+[req_attributes]
+challengePassword=mypassword

@@ -1,0 +1,50 @@
+# Define top-level entry
+dn: dc=wrox,dc=com
+objectClass: dcObject
+objectClass: organization
+dc: wrox
+o: wroxpress
+
+
+# Define an entry to contain people
+# searches for users are based on this entry
+dn: ou=people,dc=wrox,dc=com
+objectClass: organizationalUnit
+ou: people
+
+# Define a user entry for user1
+dn: uid=user1,ou=people,dc=wrox,dc=com
+objectClass: inetOrgPerson
+uid: user1
+sn: user
+cn: first user
+mail: user1@wrox.com
+userPassword: user1
+
+# Define a user entry for user2
+dn: uid=user2,ou=people,dc=wrox,dc=com
+objectClass: inetOrgPerson
+uid: user2
+sn: user
+cn: second user
+mail: user2@wrox.com
+userPassword: user2
+
+# Define an entry to contain LDAP groups
+# searches for roles are based on this entry
+dn: ou=groups,dc=wrox,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+# Define an entry for the "admin" role
+dn: cn=admin,ou=groups,dc=wrox,dc=com
+objectClass: groupOfUniqueNames
+cn: admin
+uniqueMember: uid=user1,ou=people,dc=wrox,dc=com
+uniqueMember: uid=user2,ou=people,dc=wrox,dc=com
+
+# Define an entry for the "manager" role
+dn: cn=manager,ou=groups,dc=wrox,dc=com
+objectClass: groupOfUniqueNames
+cn: manager
+uniqueMember: uid=user1,ou=people,dc=wrox,dc=com

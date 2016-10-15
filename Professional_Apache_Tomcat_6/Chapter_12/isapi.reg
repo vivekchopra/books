@@ -1,0 +1,8 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Apache Software Foundation\Jakarta Isapi Redirector\1.0]
+"extension_uri"="/tomcat/isapi_redirect.dll"
+"log_file"="C:\\Inetpub\\ISAPI\\logs\\iis_redirect.log"
+"log_level"="INFO"
+"worker_file"="C:\\Inetpub\\ISAPI\\conf\\workers.properties"
+"worker_mount_file"="C:\\Inetpub\\ISAPI\\conf\\uriworkermap.properties"

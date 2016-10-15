@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <appender name="myFileAppenderForSysadmin" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:/tmp/messages-s.log"/>
+        <layout class="org.apache.log4j.SimpleLayout"/>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+    <appender name="myFileAppenderForDevelopers" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:/tmp/messages-d.log"/>
+        <layout class="org.apache.log4j.SimpleLayout"/>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+
+    <root>
+        <level value="all" />
+        <appender-ref ref="myFileAppenderForSysadmin"/>
+        <appender-ref ref="myFileAppenderForDevelopers"/>
+    </root>
+</log4j:configuration>
+
