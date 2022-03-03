@@ -1,0 +1,2 @@
+* Professional Apache Tomcat 6: https://www.wiley.com/en-us/Professional+Apache+Tomcat+6-p-9780471753612
+* Beginning JavaServer Pages: https://www.wiley.com/en-ie/Beginning+JavaServer+Pages-p-9780764574856
